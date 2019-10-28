@@ -125,17 +125,17 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
                 "1 Tbsp chopped fresh parsley");
         pastaRecipe.setSource("https://www.simplyrecipes.com/recipes/penne_pasta_with_meat_sauce/");
         pastaRecipe.setUrl("https://www.simplyrecipes.com/recipes/penne_pasta_with_meat_sauce/");
-        pastaRecipe.getIngredients().add(new Ingredient("penne pasta", new BigDecimal(".5"), poundUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("", new BigDecimal(".5"), poundUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("virgin olive oil", new BigDecimal(2), tbspUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("onion", new BigDecimal(2), cupsUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("garlic", new BigDecimal(2), clovesUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("Italian seasoning", new BigDecimal(1), teaspoonUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("pepper flakes", new BigDecimal(1), dashUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("fresh thyme", new BigDecimal(".5"), teaspoonUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("ground beef", new BigDecimal(1), poundUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("basil leaves", new BigDecimal(".5"), teaspoonUom, pastaRecipe));
-        pastaRecipe.getIngredients().add(new Ingredient("sugar", new BigDecimal(1), teaspoonUom, pastaRecipe));
+        pastaRecipe.addIngredient(new Ingredient("penne pasta", new BigDecimal(".5"), poundUom ));
+        pastaRecipe.addIngredient(new Ingredient("", new BigDecimal(".5"), poundUom ));
+        pastaRecipe.addIngredient(new Ingredient("virgin olive oil", new BigDecimal(2), tbspUom));
+        pastaRecipe.addIngredient(new Ingredient("onion", new BigDecimal(2), cupsUom));
+        pastaRecipe.addIngredient(new Ingredient("garlic", new BigDecimal(2), clovesUom));
+        pastaRecipe.addIngredient(new Ingredient("Italian seasoning", new BigDecimal(1), teaspoonUom));
+        pastaRecipe.addIngredient(new Ingredient("pepper flakes", new BigDecimal(1), dashUom));
+        pastaRecipe.addIngredient(new Ingredient("fresh thyme", new BigDecimal(".5"), teaspoonUom));
+        pastaRecipe.addIngredient(new Ingredient("ground beef", new BigDecimal(1), poundUom));
+        pastaRecipe.addIngredient(new Ingredient("basil leaves", new BigDecimal(".5"), teaspoonUom));
+        pastaRecipe.addIngredient(new Ingredient("sugar", new BigDecimal(1), teaspoonUom));
 
         // Notes for the pasta
         Notes notesPastaRecipe = new Notes();
@@ -144,7 +144,6 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
                 "The meat sauce also freezes quite well, though not with the pasta. If you want to freeze some or all of the meat sauce for future meals, just skip adding the pasta.\n" +
                 "\n" +
                 "To freeze the sauce by itself, cook the sauce completely, then let it cool completely. Transfer to freezer containers or bags, and freeze for up to three months. Thaw overnight in the fridge before reheating, or reheat directly from the freezer over low heat in a sauce pan. Add a splash or two of water or milk to loosen up the sauce if it seems dry.");
-        notesPastaRecipe.setRecipe(pastaRecipe);
         pastaRecipe.setNotes(notesPastaRecipe);
 
         // Categories for pasta
@@ -179,12 +178,12 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
                 "Serve tenders while warm with a veggie and/or side salad and any dips you want, such as ketchup or bbq sauce. My kids loved honey! You can also make the Dad Add and have a sandwich!");
         chickenRecipe.setSource("https://www.simplyrecipes.com/recipes/goldfish_chicken_tenders/");
         chickenRecipe.setUrl("https://www.simplyrecipes.com/recipes/goldfish_chicken_tenders/");
-        chickenRecipe.getIngredients().add(new Ingredient("Goldfist cheese crackes", new BigDecimal(2), cupsUom, chickenRecipe));
-        chickenRecipe.getIngredients().add(new Ingredient("Nonstick spray", new BigDecimal(1), tbspUom, chickenRecipe));
-        chickenRecipe.getIngredients().add(new Ingredient("Flour", new BigDecimal(1), cupsUom, chickenRecipe));
-        chickenRecipe.getIngredients().add(new Ingredient("Salt", new BigDecimal(1), teaspoonUom, chickenRecipe));
-        chickenRecipe.getIngredients().add(new Ingredient("Black pepper", new BigDecimal(1), teaspoonUom, chickenRecipe));
-        chickenRecipe.getIngredients().add(new Ingredient("Chicken Breasts", new BigDecimal(2), poundUom, chickenRecipe));
+        chickenRecipe.addIngredient(new Ingredient("Goldfist cheese crackes", new BigDecimal(2), cupsUom));
+        chickenRecipe.addIngredient(new Ingredient("Nonstick spray", new BigDecimal(1), tbspUom));
+        chickenRecipe.addIngredient(new Ingredient("Flour", new BigDecimal(1), cupsUom));
+        chickenRecipe.addIngredient(new Ingredient("Salt", new BigDecimal(1), teaspoonUom));
+        chickenRecipe.addIngredient(new Ingredient("Black pepper", new BigDecimal(1), teaspoonUom));
+        chickenRecipe.addIngredient(new Ingredient("Chicken Breasts", new BigDecimal(2), poundUom));
 
         // Notes for chicken
         Notes noteschickenRecipe = new Notes();
@@ -195,7 +194,6 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
                 "1/2 cup shredded iceberg lettuce\n" +
                 "3 to 4 Goldfish chicken tenders\n" +
                 "Pickled banana peppers");
-        noteschickenRecipe.setRecipe(chickenRecipe);
         chickenRecipe.setNotes(noteschickenRecipe);
 
         //Categories for chicken
