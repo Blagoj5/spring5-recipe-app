@@ -1,33 +1,23 @@
 package baze.springframework.controllers;
 
-import baze.springframework.domain.Category;
-import baze.springframework.domain.UnitOfMeassure;
-import baze.springframework.repositories.CategoryRepository;
-import baze.springframework.repositories.UnitOfMeassureRepository;
+import baze.springframework.services.RecipeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
 
 @Controller
 public class IndexController {
 
-    private CategoryRepository categoryRepository;
-    private UnitOfMeassureRepository unitOfMeassureRepository;
+    private RecipeService recipeService;
 
-    public IndexController(CategoryRepository categoryRepository, UnitOfMeassureRepository unitOfMeassureRepository) {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeassureRepository = unitOfMeassureRepository;
+    public IndexController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String getIndex(){
+    public String getIndex(Model model){
 
-        Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
-        Optional<UnitOfMeassure> unitOfMeassureOptional = unitOfMeassureRepository.findByDescription("Tablespoon");
-
-        System.out.println("Category id: " + categoryOptional.get().getId());
-        System.out.println("UOM id: " + unitOfMeassureOptional.get().getId());
+        model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
     }
