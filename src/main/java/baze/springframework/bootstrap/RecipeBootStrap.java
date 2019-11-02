@@ -4,6 +4,7 @@ import baze.springframework.domain.*;
 import baze.springframework.repositories.CategoryRepository;
 import baze.springframework.repositories.RecipeRepository;
 import baze.springframework.repositories.UnitOfMeassureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Component
 public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -20,7 +22,8 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
     private final RecipeRepository recipeRepository;
     private final UnitOfMeassureRepository unitOfMeassureRepository;
 
-    public RecipeBootStrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeassureRepository unitOfMeassureRepository) {
+    public RecipeBootStrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository,
+                           UnitOfMeassureRepository unitOfMeassureRepository) {
         this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
         this.unitOfMeassureRepository = unitOfMeassureRepository;
@@ -28,6 +31,7 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.debug("Loading bootstrap");
         recipeRepository.saveAll(listRecipes());
     }
 
@@ -204,6 +208,7 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         recipes.add(chickenRecipe);
         recipes.add(pastaRecipe);
 
+        log.debug("Bootstrap loaded(data loaded)!!");
         return recipes;
     }
 
