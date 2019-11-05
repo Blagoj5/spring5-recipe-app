@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Recipe App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>My RECIPES!</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Description</th>
-        <th>Notes</th>
-    </tr>
-    <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe.id}" style="width: 100px">Id</td>
-        <td th:text="${recipe.description}" style="width: 200px">Description</td>
-        <td th:text="${recipe.notes.getRecipeNotes()}" style="width: 600px"></td>
-    </tr>
-</table>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title">My Recipes!</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                        <table class="table table-hover">
+                            <thead class="thead thead-inverse">
+                            <tr>
+                                <th>Id</th>
+                                <th>Description</th>
+                                <th>Notes</th>
+                            </thead>
+                            </tr>
+                            <tr th:each="recipe : ${recipes}">
+                                <td th:text="${recipe.id}" style="width: 100px">Id</td>
+                                <td th:text="${recipe.description}" style="width: 200px">Description</td>
+                                <td th:text="${recipe.notes.getRecipeNotes()}" style="width: 600px"></td>
+                            </tr>
+                            <tr th:remove="all">
+                                <td th:text="${recipe.id}">123</td>
+                                <td th:text="${recipe.description}" style="width: 200px">Test 1</td>
+                                <td th:text="${recipe.notes.getRecipeNotes()}" style="width: 600px">Test 1 notes</td>
+                            </tr>
+                            <tr th:remove="all">
+                                <td th:text="${recipe.id}">123</td>
+                                <td th:text="${recipe.description}">Test 1</td>
+                                <td th:text="${recipe.notes.getRecipeNotes()}">Test notes</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
+
+
+</div>
 </html>
